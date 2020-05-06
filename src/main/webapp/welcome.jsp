@@ -25,9 +25,6 @@
 <title>Google login</title>
 </head>
 <body>
-	<%if (session.getAttribute("userName") == null) {%>
-	<jsp:forward page="/index.jsp" />
-	<%}%>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-light">
 	<ul class="navbar-nav">
 		<li class="nav-item">${userName}</li>
