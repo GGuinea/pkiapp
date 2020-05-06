@@ -1,0 +1,26 @@
+<web-app>
+
+    <display-name>Simple Servlet Application</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Hello</servlet-name>
+        <servlet-class>pkiapp.Hello</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>databaseServlet</servlet-name>
+        <servlet-class>pkiapp.DataBaseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>databaseServlet</servlet-name>
+        <url-pattern>/data</url-pattern>
+    </servlet-mapping>
+</web-app>
