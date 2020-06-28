@@ -12,7 +12,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataBaseServlet extends HttpServlet {
+public class InvoicesDatabaseOutputServlet extends HttpServlet {
 
     private static final long serialVersionUID = -4751096228274971485L;
 
@@ -31,15 +31,16 @@ public class DataBaseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            List<String> tableList = new ArrayList<>();
-            DatabaseMetaData dvmd = getConnection().getMetaData();
-            String[] types = {"TABLE"};
-            ResultSet resultSet = dvmd.getTables(null, null, "%", types);
-            while(resultSet.next()) {
-                tableList.add(resultSet.getString("TABLE_NAME"));
+            List<InvoicesDatabaseOutput> output = new ArrayList<>();
+            Statement stmt = getConnection().createStatement();
+            ResultSet rs = stmt.executeQuery("Select * from invoices");
+            while (rs.next()) {
+                output.add(new InvoicesDatabaseOutput(rs.getInt("id"), rs.getString("title"), rs.getInt("author"),
+                        rs.getTimestamp("created")
+                          .toString()));
             }
-            req.setAttribute("tableList", tableList);
-            RequestDispatcher view = req.getRequestDispatcher("tableList.jsp");
+            req.setAttribute("data", output);
+            RequestDispatcher view = req.getRequestDispatcher("invoicesOutput.jsp");
             view.forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();

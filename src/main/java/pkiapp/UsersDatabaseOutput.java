@@ -1,16 +1,19 @@
 package pkiapp;
 
-public class DatabaseOutput {
-    public DatabaseOutput(int id, String name, String createTime, String lastVisitedTime, int counter) {
-        super();
+public class UsersDatabaseOutput {
+    private int id;
+    private String name;
+    private String createTime;
+    private String lastVisitedTime;
+    private int counter;
+
+    public UsersDatabaseOutput(int id, String name, String createTime, String lastVisitedTime, int counter) {
         this.id = id;
         this.name = name;
         this.createTime = createTime;
         this.lastVisitedTime = lastVisitedTime;
         this.counter = counter;
     }
-
-    private int id;
 
     public int getId() {
         return id;
@@ -31,10 +34,4 @@ public class DatabaseOutput {
     public int getCounter() {
         return counter;
     }
-
-    private String name;
-    private String createTime;
-    private String lastVisitedTime;
-    private int counter;
-
 }

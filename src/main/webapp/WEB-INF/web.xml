@@ -15,12 +15,53 @@
         <servlet-name>databaseServlet</servlet-name>
         <servlet-class>pkiapp.DataBaseServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>invoicesDatabaseServlet</servlet-name>
+        <servlet-class>pkiapp.InvoicesDatabaseOutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>usersDatabaseServlet</servlet-name>
+        <servlet-class>pkiapp.UsersDatabaseOutputServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>newUser</servlet-name>
+        <servlet-class>pkiapp.UserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteUser</servlet-name>
+        <servlet-class>pkiapp.DeleteUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>modifyUser</servlet-name>
+        <servlet-class>pkiapp.ModifyUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Hello</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>newUser</servlet-name>
+        <url-pattern>/newUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>databaseServlet</servlet-name>
         <url-pattern>/data</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteUser</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>modifyUser</servlet-name>
+        <url-pattern>/modifyUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>invoicesDatabaseServlet</servlet-name>
+        <url-pattern>/invoices</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>usersDatabaseServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
     </servlet-mapping>
 </web-app>
